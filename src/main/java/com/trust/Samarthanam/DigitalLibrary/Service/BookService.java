@@ -35,16 +35,17 @@ public class BookService {
                 .withSkipLines(1)
                 .build();
         List<String[]> allData = csvReader.readAll();
+        ArrayList<String[]> a = new ArrayList<>();
         String[] b = null;
         for (String[] book : allData)
             for (String s : book) {
-                if (s.equals(key))
-                    b = book;
+                if (s.equalsIgnoreCase(key))
+                    a.add(book);
             }
-                ArrayList<String[]> a = new ArrayList<>();
-                a.add(b);
-    return a;
-
+        return a;
     }
+
 }
+
+
 
